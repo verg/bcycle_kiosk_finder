@@ -4,9 +4,13 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.0'
 gem 'pg', '0.15.1'
+gem 'bootstrap-sass', '2.3.2.0'
+gem 'geocoder'
+gem 'faraday'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
+  gem 'pry'
 end
 
 group :test do
