@@ -1,6 +1,10 @@
 BikeKiosk::Application.routes.draw do
+  COORD_PATTERN = /-?\d+\.\d+/
+  resources :locations, only: [:new, :show, :create]
+
+  root 'locations#new'
   # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  # See hoto:kw all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
@@ -39,7 +43,7 @@ BikeKiosk::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

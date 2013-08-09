@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for @location do |f| %>
+      <p>Enter an address, and we'll find the closest kiosk</p>
+      <%= f.label :address %>
+      <%= f.text_field :address, placeholder: "Where are you going?", :autofocus => true %>
+      <%= f.submit "Find nearby Kiosks", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<%= render 'shared/search_form' %>
+<% unless @locations.blank? %>
+  <h3>Recent locations</h3>
+  <ul class="locations">
+    <%= render @locations %>
+  </ul>
+<% end %>
