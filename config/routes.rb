@@ -1,8 +1,8 @@
 BikeKiosk::Application.routes.draw do
   COORD_PATTERN = /-?\d+\.\d+/
-  resources :locations, only: [:new, :show, :create]
+  resources :locations, only: [:index, :show, :create]
 
-  root 'locations#new'
+  root 'locations#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See hoto:kw all your routes lay out with "rake routes".
 

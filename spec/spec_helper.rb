@@ -48,11 +48,11 @@ Geocoder.configure(:lookup => :test)
 Geocoder::Lookup::Test.set_default_stub(
   [
     {
-      'latitude'     => 40.7143528,
-      'longitude'    => -74.0059731,
-      'address'      => 'New York, NY, USA',
-      'state'        => 'New York',
-      'state_code'   => 'NY',
+      'latitude'     => 43.0739151,
+      'longitude'    => -89.3831642,
+      'address'      => 'Madison, Wi, 53703',
+      'state'        => 'Wisconsin',
+      'state_code'   => 'WI',
       'country'      => 'United States',
       'country_code' => 'US'
     }
