@@ -48,8 +48,7 @@ describe "LocationPages" do
     end
 
     it { should have_content "Station" }
-    it { should have_content "Distance to destination" }
     it { should have_content "Open Docks" }
-    it { should have_content "Bikes Availible" }
+    it { should have_content "Bikes" }
   end
 end
