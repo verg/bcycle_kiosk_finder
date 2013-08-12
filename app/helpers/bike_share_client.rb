@@ -11,7 +11,6 @@ module BikeShareClient
     kiosks.map{|kiosk_hash| BikeShareResult.new(kiosk_hash) }
   end
 
-
   private
 
   def self.parsed_json

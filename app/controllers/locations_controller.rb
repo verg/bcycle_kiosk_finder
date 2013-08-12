@@ -1,13 +1,15 @@
 class LocationsController < ApplicationController
   SearchDiameter = 0.01 # in miles
+    before_action :update_kiosks_async
 
   def new
+    update_kiosks_async
     @location = Location.new
     @locations = Location.all
   end
 
   def show
-    update_kiosks if kiosks_stale?
+    update_kiosks_async
     @location = Location.find(params[:id])
     @locations = Location.all
     @kiosks = Kiosk.near(@location.to_coordinates).first(4)
@@ -34,12 +36,8 @@ class LocationsController < ApplicationController
     [params[:latitude], params[:longitude]]
   end
 
-  def update_kiosks
-    kiosk_results = BikeShareClient.get
-    kiosk_results.each do |kiosk_result|
-      kiosk = Kiosk.find_or_create_by(external_id: kiosk_result.external_id)
-      kiosk.update(kiosk_result.to_hash)
-    end
+  def update_kiosks_async
+    Resque.enqueue(UpdateKiosksJob) if kiosks_stale?
   end
 
   def kiosks_stale?

@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe "LocationPages" do
   subject { page }
+  before { BikeShareClient.stub(:parsed_json) { KioskResults.example } }
 
   describe 'new' do
     before do
       visit root_path
-      BikeShareClient.stub(:parsed_json) { KioskResults.example }
     end
 
     let (:submit) { "Find nearby Kiosks" }
@@ -43,11 +43,13 @@ describe "LocationPages" do
   describe 'show' do
     before do
       visit root_path
-      BikeShareClient.stub(:parsed_json) { KioskResults.example }
+      location =  Location.create(latitude: 39.73339, longitude: -104.98753)
+      visit location_path(location)
     end
 
-    it 'has data for the nearest kiosks' do
-    end
-
+    it { should have_content "Station" }
+    it { should have_content "Distance to destination" }
+    it { should have_content "Open Docks" }
+    it { should have_content "Bikes Availible" }
   end
 end
