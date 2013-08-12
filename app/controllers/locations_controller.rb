@@ -25,7 +25,7 @@ class LocationsController < ApplicationController
       @kiosks = Kiosk.near(@destination.to_coordinates).first(4)
       render 'index'
     else
-      flash.now[:error] = "We couldn't find: #{@destination.address}"
+      flash.now[:error] = "hmm... Can't find that location. Try again."
       render 'index'
     end
   end

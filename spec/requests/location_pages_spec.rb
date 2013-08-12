@@ -32,7 +32,6 @@ describe "LocationPages" do
       it "warns when location isn't found" do
         click_button submit
         expect(page).to have_selector('div.alert.alert-error')
-        expect(page).to have_content('not an address')
       end
 
       describe 'after submission' do
