@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Bike Kiosk Finder</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <h1>Bike Kiosk Finder</h1>
+  <head>
+    <title>Bike Kiosk Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
 
-<%= yield %>
+          <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+          <% end %>
 
-</body>
+          <h1 class="margin-base-vertical text-center">Bike Kiosk Finder</h1>
+
+          <%= yield %>
+
+          <%= render 'shared/search_form' %>
+          <% unless @locations.blank? %>
+            <h3 class="margin-base-vertical">Recent locations</h3>
+            <ul class="locations">
+              <%= render @locations %>
+            </ul>
+          <% end %>
+      </div>
+    </div>
+  </body>
 </html>

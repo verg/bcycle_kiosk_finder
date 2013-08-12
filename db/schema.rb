@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130809154110) do
+ActiveRecord::Schema.define(version: 20130810190446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "kiosks", force: true do |t|
+    t.integer  "external_id"
+    t.string   "name"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip_code"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "status"
+    t.integer  "docks_available"
+    t.integer  "bikes_available"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "kiosks", ["external_id"], name: "index_kiosks_on_external_id", using: :btree
 
   create_table "locations", force: true do |t|
     t.string   "address"

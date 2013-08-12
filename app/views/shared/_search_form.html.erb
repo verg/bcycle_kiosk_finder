@@ -1,10 +1,9 @@
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for @location do |f| %>
-      <p>Enter an address, and we'll find the closest kiosk</p>
-      <%= f.label :address %>
-      <%= f.text_field :address, placeholder: "Where are you going?", :autofocus => true %>
-      <%= f.submit "Find nearby Kiosks", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
+<%= form_for @location, class: "margin-base-vertical" do |f| %>
+  <p class="help-block text-center focus">Enter an address. We'll find the closest kiosk.</p>
+  <p class="input-group text-center">
+  <%= f.text_field :address, class: "form-control input-large", placeholder: "Where are you going?", :autofocus => true %>
+  <p class="text-center">
+  <%= f.submit "Find nearby Kiosks", class: "btn btn-primary btn-lg" %>
+  </p>
+  </p>
+<% end %>
