@@ -19,6 +19,7 @@
     <% end %>
 
       <%= yield %>
+      <%= render 'locations/kiosks' %>
 
       <%= render 'shared/search_form' %>
       <% unless @locations.blank? %>
