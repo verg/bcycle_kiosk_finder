@@ -2,6 +2,8 @@
 
 body {
   padding-top: 20px;
+  background: #BFDEFF;
+  color: #FFF;
   font-size: 16px;
   font-family: "Open Sans",serif;
 }
@@ -9,14 +11,64 @@ body {
 h1 {
   font-family: "Abel", Arial, sans-serif;
   font-weight: 400;
-  font-size: 40px;
+  font-size: 46px;
+  color: #333333;
 }
+
 h3 {
   font-family: "Abel", Arial, sans-serif;
   font-weight: 300;
   font-size: 28px;
+  color: #333333;
+}
+
+h4 {
+  padding-top: 16px;
+  font-family: "Abel", Arial, sans-serif;
+  color: #333333;
+  text-align:center
+}
+
+p {
+  font-family: "Abel", Arial, sans-serif;
+}
+
+th {
+  font-family: "Abel", Arial, sans-serif;
+  color: #333333;
+  text-align:center
+}
+
+td {
+  font-family: "Abel", Arial, sans-serif;
+  color: #595959;
+  text-align:center
+}
+
+.form-control {
+  padding-top: 20px;
 }
 
 .margin-base-vertical {
   margin: 40px 0;
+}
+
+.kiosks {
+  background: #FFF;
+}
+
+.Absolute-Center {
+  height: 50%;
+  width: 60%;
+  margin: auto;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.Center-Block {
+  background: #BFDEFF;
+  color: #FFF;
 }
