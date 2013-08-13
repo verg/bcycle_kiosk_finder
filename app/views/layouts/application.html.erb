@@ -9,13 +9,14 @@
 </head>
 <body>
 <div class="container">
-    <div class="Center-Block Absolute-Center">
+  <div class="Center-Block Absolute-Center">
+    <div class="kiosks">
+
+      <h1 class="text-center">Bike Kiosk Finder</h1>
 
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "alert alert-#{key}") %>
     <% end %>
-
-      <h1 class="text-center">Bike Kiosk Finder</h1>
 
       <%= yield %>
 
@@ -28,5 +29,6 @@
     <% end %>
     </div>
   </div>
+</div>
 </body>
 </html>

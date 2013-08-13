@@ -7,7 +7,8 @@ gem 'pg', '0.15.1'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'geocoder'
 gem 'faraday'
-gem 'resque'
+gem 'resque', "~> 1.22.0"
+
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
