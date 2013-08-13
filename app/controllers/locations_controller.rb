@@ -1,25 +1,27 @@
 class LocationsController < ApplicationController
   SearchDiameter = 0.01 # in miles
   before_action :update_kiosks_async
+  before_action :find_or_create_user
 
   def index
     update_kiosks_async
     @location = Location.new
-    @locations = Location.all
+    @locations = @current_user.locations
   end
 
   def show
     update_kiosks_async
     @destination = Location.find(params[:id])
-    @locations = Location.all
+    @locations = @current_user.locations
     @location = Location.new
     @kiosks = Kiosk.near(@destination.to_coordinates).first(4)
   end
 
   def create
-    @locations = Location.all
+    @locations = @current_user.locations
     @location = Location.new
     @destination = Location.new(location_params)
+    @destination.user = @current_user
 
     if @destination.save
       @kiosks = Kiosk.near(@destination.to_coordinates).first(4)

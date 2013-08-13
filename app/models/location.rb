@@ -1,4 +1,5 @@
 class Location < ActiveRecord::Base
+  belongs_to :user
   extend ::Geocoder::Model::ActiveRecord
   geocoded_by :address
   reverse_geocoded_by :latitude, :longitude
