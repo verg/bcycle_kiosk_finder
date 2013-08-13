@@ -6,19 +6,19 @@ class LocationsController < ApplicationController
   def index
     update_kiosks_async
     @location = Location.new
-    @locations = @current_user.locations
+    @locations = @current_user.locations.last(6)
   end
 
   def show
     update_kiosks_async
     @destination = Location.find(params[:id])
-    @locations = @current_user.locations
+    @locations = @current_user.locations.last(6)
     @location = Location.new
     @kiosks = Kiosk.near(@destination.to_coordinates).first(4)
   end
 
   def create
-    @locations = @current_user.locations
+    @locations = @current_user.locations.last(6)
     @location = Location.new
     @destination = Location.new(location_params)
     @destination.user = @current_user

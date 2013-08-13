@@ -15,12 +15,13 @@
 
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-  <% end %>
+    <% end %>
 
-    <%= yield %>
     <div class="kiosks">
       <%= render 'locations/kiosks' %>
     </div>
+
+    <%= yield %>
 
     <%= render 'shared/search_form' %>
     <% unless @locations.blank? %>
