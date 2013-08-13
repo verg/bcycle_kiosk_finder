@@ -10,25 +10,25 @@
 <body>
 <div class="container">
   <div class="Center-Block Absolute-Center">
+
+    <h1 class="text-center">Bike Kiosk Finder</h1>
+
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+  <% end %>
+
+    <%= yield %>
     <div class="kiosks">
-
-      <h1 class="text-center">Bike Kiosk Finder</h1>
-
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-    <% end %>
-
-      <%= yield %>
       <%= render 'locations/kiosks' %>
-
-      <%= render 'shared/search_form' %>
-      <% unless @locations.blank? %>
-        <div class="locations">
-        <h3 class="text-center">Recent locations</h3>
-        <%= render @locations %>
-      </div>
-    <% end %>
     </div>
+
+    <%= render 'shared/search_form' %>
+    <% unless @locations.blank? %>
+      <div class="locations">
+      <h3 class="text-center">Recent locations</h3>
+      <%= render @locations %>
+    </div>
+  <% end %>
   </div>
 </div>
 </body>
