@@ -5,6 +5,7 @@ class Location < ActiveRecord::Base
   reverse_geocoded_by :latitude, :longitude
   before_validation :geocode, :if => :address_changed?
   validates :latitude, :longitude, presence: true
+  validates_uniqueness_of :address, scope: :user_id
 
   def to_coordinates
     [latitude, longitude]
