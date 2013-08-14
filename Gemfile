@@ -8,11 +8,13 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'geocoder'
 gem 'faraday'
 gem 'resque', "~> 1.22.0"
+gem 'newrelic_rpm'
 
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
   gem 'pry'
+  gem 'pry-rails'
 end
 
 group :test do
