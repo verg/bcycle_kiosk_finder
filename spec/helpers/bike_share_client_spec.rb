@@ -1,10 +1,14 @@
 require 'spec_helper'
+require 'vcr_helper'
+require_relative '../../app/helpers/bike_share_client'
+require_relative '../../app/helpers/bike_share_result'
 
 describe BikeShareClient do
 
   before do
-    BikeShareClient.stub(:parsed_json) { KioskResults.example }
-    @result =  BikeShareClient.get
+    VCR.use_cassette("bike_results") do
+      @result =  BikeShareClient.get
+    end
   end
 
   describe '.get' do
